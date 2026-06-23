@@ -597,73 +597,16 @@ const datiUtenti = {
       "Spuntino": { min: 150, max: 300 },
       "Cena": { min: 400, max: 600 }
     },
-    ricette: [
-      {
-        id: "uova-strapazzate-pomodori",
-        nome: "Uova strapazzate con pomodori",
-        categoria: "Colazione",
-        totale: { kcal: 379, proteine: 23.7, grassi: 22.9, carboidrati: 19 },
-        ingredienti: [
-          { alimento: "Uova", quantita: "3 (165 g)" },
-          { alimento: "Pane integrale", quantita: "30 g" },
-          { alimento: "Pomodori", quantita: "100 g" },
-          { alimento: "Olio EVO (cottura)", quantita: "5 g" }
-        ],
-        passaggi: [
-          "Tagliare i pomodori a cubetti.",
-          "Scaldare l'olio EVO in una padella antiaderente a fuoco medio.",
-          "Rompere le uova in una ciotola e sbatterle leggermente con una forchetta.",
-          "Versare le uova in padella e cuocere mescolando di continuo a fuoco medio-basso.",
-          "A metà cottura aggiungere i pomodori e continuare a mescolare finché le uova sono morbide ma cotte.",
-          "Servire con il pane integrale tostato a parte."
-        ]
-      },
-      {
-        id: "tacchino-forno-finocchi-patate",
-        nome: "Tacchino al forno con finocchi e patate",
-        categoria: "Cena",
-        totale: { kcal: 550, proteine: 55, grassi: 20.25, carboidrati: 39.5 },
-        ingredienti: [
-          { alimento: "Petto di tacchino", quantita: "200 g" },
-          { alimento: "Finocchi", quantita: "200 g" },
-          { alimento: "Patate", quantita: "150 g" },
-          { alimento: "Avocado", quantita: "50 g" },
-          { alimento: "Olio EVO", quantita: "10 g" }
-        ],
-        passaggi: [
-          "Tagliare le patate a tocchetti e i finocchi a spicchi.",
-          "Disporre patate e finocchi su una teglia da forno, condire con metà dell'olio EVO e infornare a 200°C per 15 minuti.",
-          "Condire il petto di tacchino con il resto dell'olio EVO e adagiarlo sulla stessa teglia.",
-          "Continuare la cottura in forno per altri 20-25 minuti, finché il tacchino è cotto e dorato e le verdure morbide.",
-          "Affettare l'avocado fresco e servirlo a fianco, senza cuocerlo."
-        ]
-      },
-      {
-        id: "pasta-carbonara",
-        nome: "Pasta alla carbonara",
-        categoria: "Pranzo",
-        totale: { kcal: 908, proteine: 45.4, grassi: 45.9, carboidrati: 73 },
-        ingredienti: [
-          { alimento: "Pasta (cruda)", quantita: "100 g" },
-          { alimento: "Guanciale/pancetta", quantita: "50 g" },
-          { alimento: "Uova", quantita: "2 (110 g)" },
-          { alimento: "Parmigiano/Grana", quantita: "30 g" }
-        ],
-        passaggi: [
-          "Cuocere la pasta in abbondante acqua salata.",
-          "Rosolare il guanciale/pancetta a fuoco basso in una padella, senza aggiungere altro grasso, finché diventa croccante.",
-          "In una ciotola sbattere le uova con il parmigiano grattugiato.",
-          "Scolare la pasta (conservando un po' di acqua di cottura) e versarla nella padella col guanciale, fuori dal fuoco.",
-          "Aggiungere il composto di uova e parmigiano, mescolando velocemente per creare una crema; allungare con un po' di acqua di cottura se risulta troppo densa."
-        ]
-      }
-    ],
+    ricette: [],
     giorni: {
       "Lunedì": {
         totale: { kcal: 1703, proteine: 144, grassi: 60.5, carboidrati: 142.9 },
         pasti: [
           { nome: "Colazione", totale: { kcal: 379, proteine: 23.7, grassi: 22.9, carboidrati: 19 }, alimenti: [
-            { tipo: "ricetta", ricettaId: "uova-strapazzate-pomodori", quantita: "1 porzione", kcal: 379, proteine: 23.7, grassi: 22.9, carboidrati: 19 }
+            { alimento: "Uova", quantita: "3 (165 g)", kcal: 234, proteine: 19.5, grassi: 16.5, carboidrati: 1.5 },
+            { alimento: "Pane integrale", quantita: "30 g", kcal: 75, proteine: 2.7, grassi: 1.1, carboidrati: 13.5 },
+            { alimento: "Pomodori", quantita: "100 g", kcal: 25, proteine: 1.5, grassi: 0.3, carboidrati: 4 },
+            { alimento: "Olio EVO (cottura)", quantita: "5 g", kcal: 45, proteine: 0, grassi: 5, carboidrati: 0 }
           ]},
           { nome: "Pranzo", totale: { kcal: 684, proteine: 55.8, grassi: 15.3, carboidrati: 75.5 }, alimenti: [
             { alimento: "Petto di pollo", quantita: "200 g", kcal: 220, proteine: 46, grassi: 2.4, carboidrati: 0 },
@@ -811,7 +754,11 @@ const datiUtenti = {
             { alimento: "Mandarini", quantita: "150 g", kcal: 68, proteine: 1.2, grassi: 0.3, carboidrati: 15 }
           ]},
           { nome: "Cena", totale: { kcal: 550, proteine: 55, grassi: 20.25, carboidrati: 39.5 }, alimenti: [
-            { tipo: "ricetta", ricettaId: "tacchino-forno-finocchi-patate", quantita: "1 porzione", kcal: 550, proteine: 55, grassi: 20.25, carboidrati: 39.5 }
+            { alimento: "Petto di tacchino", quantita: "200 g", kcal: 210, proteine: 48, grassi: 2, carboidrati: 0 },
+            { alimento: "Finocchi", quantita: "200 g", kcal: 50, proteine: 3, grassi: 0.6, carboidrati: 8 },
+            { alimento: "Patate", quantita: "150 g", kcal: 120, proteine: 3, grassi: 0.15, carboidrati: 27 },
+            { alimento: "Avocado", quantita: "50 g", kcal: 80, proteine: 1, grassi: 7.5, carboidrati: 4.5 },
+            { alimento: "Olio EVO", quantita: "10 g", kcal: 90, proteine: 0, grassi: 10, carboidrati: 0 }
           ]}
         ]
       },
