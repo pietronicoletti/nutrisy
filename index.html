@@ -4,40 +4,58 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Piano alimentare — Progetto Nutrizionista</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root {
-    --verde: #2e7d4f;
-    --verde-chiaro: #e8f5ee;
-    --arancio: #e07b39;
-    --rosso: #d9534f;
-    --grigio: #6b7280;
-    --bg: #f7f5f0;
+    --verde: #16a34a;
+    --verde-scuro: #0f7a38;
+    --verde-chiaro: #ecfdf3;
+    --teal: #0ea5e9;
+    --arancio: #f97316;
+    --viola: #9333ea;
+    --rosso: #ef4444;
+    --grigio: #64748b;
+    --bg: #f8fafc;
     --card-bg: #ffffff;
-    --testo: #2b2b2b;
-    --ombra: 0 2px 8px rgba(0,0,0,0.06);
+    --testo: #0f172a;
+    --ombra: 0 4px 18px rgba(15, 23, 42, 0.07);
+    --ombra-hover: 0 12px 28px rgba(15, 23, 42, 0.12);
+    --radius: 18px;
   }
   * { box-sizing: border-box; }
   body {
     margin: 0;
-    font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    background: var(--bg);
+    font-family: "Plus Jakarta Sans", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     color: var(--testo);
     padding-bottom: 40px;
+    background-color: var(--bg);
+    background-image:
+      radial-gradient(circle at 8% -8%, rgba(22,163,74,0.14), transparent 42%),
+      radial-gradient(circle at 95% 0%, rgba(249,115,22,0.10), transparent 38%),
+      radial-gradient(circle at 50% 100%, rgba(14,165,233,0.08), transparent 45%);
+    background-attachment: fixed;
   }
   header {
-    background: linear-gradient(135deg, var(--verde) 0%, #1f5c38 100%);
+    background: linear-gradient(120deg, var(--verde) 0%, var(--teal) 100%);
     color: white;
-    padding: 32px 24px 24px;
+    padding: 38px 24px 30px;
     text-align: center;
+    border-radius: 0 0 28px 28px;
+    box-shadow: 0 8px 30px rgba(22,163,74,0.25);
   }
   header h1 {
     margin: 0 0 8px;
-    font-size: 1.8rem;
+    font-size: 2.1rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
   }
   header p {
-    margin: 0;
-    opacity: 0.9;
-    font-size: 0.95rem;
+    margin: 0 auto;
+    max-width: 560px;
+    opacity: 0.95;
+    font-size: 0.97rem;
   }
   .container {
     max-width: 920px;
@@ -46,10 +64,10 @@
   }
   .controls-bar {
     background: var(--card-bg);
-    border-radius: 14px;
+    border-radius: var(--radius);
     box-shadow: var(--ombra);
-    padding: 18px 20px;
-    margin-bottom: 20px;
+    padding: 18px 22px;
+    margin-bottom: 22px;
     display: flex;
     flex-wrap: wrap;
     gap: 16px;
@@ -61,103 +79,121 @@
     gap: 6px;
   }
   .control-group label {
-    font-size: 0.8rem;
+    font-size: 0.78rem;
     color: var(--grigio);
-    font-weight: 600;
+    font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.03em;
+    letter-spacing: 0.05em;
   }
   select {
-    border: 1.5px solid #d8d4cb;
-    border-radius: 8px;
-    padding: 8px 12px;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 9px 14px;
     font-size: 0.95rem;
-    background: white;
+    font-family: inherit;
+    font-weight: 600;
+    background: #f8fafc;
     color: var(--testo);
     min-width: 160px;
+    cursor: pointer;
+    transition: border-color 0.15s ease;
   }
+  select:hover { border-color: var(--verde); }
   .view-tabs {
     display: flex;
     gap: 8px;
     margin-left: auto;
   }
   .view-tab-btn {
-    border: 1.5px solid #d8d4cb;
+    border: 1.5px solid #e2e8f0;
     background: white;
     border-radius: 999px;
-    padding: 8px 16px;
+    padding: 9px 18px;
     font-size: 0.9rem;
-    font-weight: 600;
+    font-weight: 700;
     cursor: pointer;
     color: var(--grigio);
-    transition: all 0.15s ease;
+    transition: all 0.18s ease;
   }
+  .view-tab-btn:hover { border-color: var(--verde); color: var(--verde-scuro); }
   .view-tab-btn.active {
-    background: var(--verde);
-    border-color: var(--verde);
+    background: linear-gradient(120deg, var(--verde), var(--teal));
+    border-color: transparent;
     color: white;
+    box-shadow: 0 6px 16px rgba(22,163,74,0.3);
   }
   .day-tabs {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
-    margin-bottom: 20px;
+    margin-bottom: 22px;
   }
   .day-tab-btn {
-    border: 1.5px solid #d8d4cb;
+    border: 1.5px solid #e2e8f0;
     background: white;
     border-radius: 999px;
-    padding: 8px 16px;
+    padding: 9px 18px;
     font-size: 0.9rem;
+    font-weight: 600;
     cursor: pointer;
     color: var(--grigio);
-    transition: all 0.15s ease;
+    transition: all 0.18s ease;
   }
-  .day-tab-btn:hover { border-color: var(--verde); }
+  .day-tab-btn:hover { border-color: var(--verde); color: var(--verde-scuro); transform: translateY(-1px); }
   .day-tab-btn.active {
-    background: var(--verde);
-    border-color: var(--verde);
+    background: linear-gradient(120deg, var(--verde), var(--teal));
+    border-color: transparent;
     color: white;
+    box-shadow: 0 6px 16px rgba(22,163,74,0.3);
   }
   .day-summary {
-    background: var(--verde-chiaro);
+    background: linear-gradient(135deg, var(--verde-chiaro) 0%, #eef9ff 100%);
     border: 1px solid #d7ead9;
-    border-radius: 14px;
-    padding: 16px 20px;
-    margin-bottom: 20px;
+    border-radius: var(--radius);
+    padding: 20px 22px;
+    margin-bottom: 22px;
     display: flex;
     flex-wrap: wrap;
     gap: 24px;
     align-items: flex-start;
     justify-content: space-between;
+    box-shadow: var(--ombra);
   }
   .day-summary-left {
     flex: 1 1 320px;
     display: flex;
     flex-wrap: wrap;
-    gap: 18px;
+    gap: 20px;
     align-items: center;
   }
   .day-summary-left .titolo {
-    font-weight: 700;
-    color: var(--verde);
-    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--verde-scuro);
+    font-size: 1.2rem;
+    letter-spacing: -0.01em;
     flex: 1 1 100%;
   }
   .stat {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
+    color: var(--grigio);
+    font-weight: 600;
   }
-  .stat b { display: block; font-size: 1.15rem; }
+  .stat b { display: block; font-size: 1.3rem; font-weight: 800; letter-spacing: -0.01em; }
+  .stat-kcal b { color: var(--verde-scuro); }
+  .stat-p b { color: var(--teal); }
+  .stat-f b { color: var(--arancio); }
+  .stat-c b { color: var(--viola); }
   .day-summary-right {
     flex: 1 1 240px;
     max-width: 340px;
   }
   .day-summary-right h3 {
-    margin: 0 0 8px;
+    margin: 0 0 10px;
     font-size: 0.78rem;
     text-transform: uppercase;
-    letter-spacing: 0.03em;
-    color: var(--verde);
+    letter-spacing: 0.05em;
+    font-weight: 800;
+    color: var(--verde-scuro);
   }
   .day-summary-right ul {
     margin: 0;
@@ -165,11 +201,12 @@
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 6px;
   }
   .day-summary-right li {
     font-size: 0.85rem;
     color: var(--testo);
+    font-weight: 500;
     display: flex;
     justify-content: space-between;
     gap: 10px;
@@ -181,33 +218,47 @@
   }
   .meal-card {
     background: var(--card-bg);
-    border-radius: 14px;
+    border-radius: var(--radius);
     box-shadow: var(--ombra);
     margin-bottom: 18px;
     overflow: hidden;
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+  }
+  .meal-card:hover {
+    box-shadow: var(--ombra-hover);
+    transform: translateY(-2px);
   }
   .meal-header {
-    padding: 14px 20px;
+    padding: 16px 22px;
     background: var(--verde-chiaro);
     border-bottom: 1px solid #d7ead9;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
   }
   .meal-header h2 {
     margin: 0;
-    font-size: 1.05rem;
-    color: var(--verde);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--verde-scuro);
+    display: flex;
+    align-items: center;
+    gap: 8px;
   }
   .meal-header .meal-kcal {
-    font-size: 0.85rem;
+    font-size: 0.82rem;
+    font-weight: 600;
     color: var(--grigio);
     background: white;
-    padding: 4px 10px;
+    padding: 5px 12px;
     border-radius: 999px;
+    box-shadow: 0 1px 4px rgba(15,23,42,0.06);
   }
+  .meal-header .meal-kcal b { font-weight: 800; }
   .food-item {
-    border-bottom: 1px solid #f0eee8;
+    border-bottom: 1px solid #f1f5f9;
   }
   .food-item:last-child {
     border-bottom: none;
@@ -217,47 +268,64 @@
     justify-content: space-between;
     align-items: center;
     gap: 12px;
-    padding: 12px 20px;
+    padding: 13px 22px;
     cursor: pointer;
     user-select: none;
+    transition: background 0.15s ease;
   }
   .food-item-row:hover {
-    background: #fafaf8;
+    background: #f8fafc;
   }
   .food-item-name {
-    font-weight: 500;
+    font-weight: 600;
   }
   .food-item-right {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
     color: var(--grigio);
     font-size: 0.9rem;
+    font-weight: 600;
     white-space: nowrap;
   }
   .food-item-toggle-icon {
     display: inline-block;
     font-size: 0.75rem;
-    transition: transform 0.15s ease;
-    color: #b9b4a8;
+    transition: transform 0.2s ease;
+    color: #cbd5e1;
   }
   .food-item.expanded .food-item-toggle-icon {
     transform: rotate(180deg);
+    color: var(--verde);
   }
   .food-item-details {
-    display: none;
-    padding: 0 20px 12px 20px;
-    flex-wrap: wrap;
-    gap: 16px;
-    font-size: 0.82rem;
-    color: var(--grigio);
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.25s ease;
+    overflow: hidden;
   }
   .food-item.expanded .food-item-details {
+    grid-template-rows: 1fr;
+  }
+  .food-item-details-inner {
+    min-height: 0;
+    overflow: hidden;
     display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 0 22px 14px 22px;
+    font-size: 0.82rem;
+    color: var(--grigio);
+    font-weight: 600;
   }
-  .food-item-details b {
-    color: var(--testo);
+  .food-item-details-inner b {
+    font-size: 0.92rem;
+    font-weight: 800;
   }
+  .food-item-details-inner .v-kcal b { color: var(--verde-scuro); }
+  .food-item-details-inner .v-p b { color: var(--teal); }
+  .food-item-details-inner .v-f b { color: var(--arancio); }
+  .food-item-details-inner .v-c b { color: var(--viola); }
   table {
     width: 100%;
     border-collapse: collapse;
@@ -265,47 +333,56 @@
   }
   table th, table td {
     text-align: left;
-    padding: 10px 20px;
-    border-bottom: 1px solid #f0eee8;
+    padding: 11px 22px;
+    border-bottom: 1px solid #f1f5f9;
   }
   table th {
     color: var(--grigio);
-    font-size: 0.78rem;
+    font-size: 0.76rem;
     text-transform: uppercase;
-    letter-spacing: 0.02em;
-    font-weight: 600;
+    letter-spacing: 0.04em;
+    font-weight: 700;
   }
+  table td { font-weight: 500; }
   table tr:last-child td { border-bottom: none; }
+  table tr:hover td { background: #f8fafc; }
   td.num, th.num { text-align: right; white-space: nowrap; }
   .spesa-category {
     background: var(--card-bg);
-    border-radius: 14px;
+    border-radius: var(--radius);
     box-shadow: var(--ombra);
     margin-bottom: 18px;
     overflow: hidden;
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+  }
+  .spesa-category:hover {
+    box-shadow: var(--ombra-hover);
+    transform: translateY(-2px);
   }
   .spesa-category h2 {
     margin: 0;
-    padding: 14px 20px;
+    padding: 16px 22px;
     background: var(--verde-chiaro);
     border-bottom: 1px solid #d7ead9;
     font-size: 1.05rem;
-    color: var(--verde);
+    font-weight: 700;
+    color: var(--verde-scuro);
   }
   .week-summary-table {
     background: var(--card-bg);
-    border-radius: 14px;
+    border-radius: var(--radius);
     box-shadow: var(--ombra);
     margin-bottom: 18px;
     overflow: hidden;
   }
   .note-box {
-    background: #fff8e6;
-    border: 1px solid #f0dca0;
-    border-radius: 10px;
-    padding: 12px 16px;
+    background: linear-gradient(120deg, #fff7ed, #fffbeb);
+    border: 1px solid #fde7c7;
+    border-radius: 14px;
+    padding: 14px 18px;
     font-size: 0.85rem;
-    color: #6b5a1d;
+    font-weight: 500;
+    color: #92400e;
     margin-bottom: 20px;
   }
   .empty-state {
@@ -683,10 +760,10 @@ function renderGiorno() {
   summary.innerHTML = `
     <div class="day-summary-left">
       <div class="titolo">${giornoCorrente} — Totale giornata</div>
-      <div class="stat">kcal<b>${fmt(giorno.totale.kcal)}</b></div>
-      <div class="stat">Proteine<b>${fmt(giorno.totale.proteine)} g</b></div>
-      <div class="stat">Grassi<b>${fmt(giorno.totale.grassi)} g</b></div>
-      <div class="stat">Carboidrati<b>${fmt(giorno.totale.carboidrati)} g</b></div>
+      <div class="stat stat-kcal">kcal<b>${fmt(giorno.totale.kcal)}</b></div>
+      <div class="stat stat-p">Proteine<b>${fmt(giorno.totale.proteine)} g</b></div>
+      <div class="stat stat-f">Grassi<b>${fmt(giorno.totale.grassi)} g</b></div>
+      <div class="stat stat-c">Carboidrati<b>${fmt(giorno.totale.carboidrati)} g</b></div>
     </div>
     <div class="day-summary-right">
       <h3>Alimenti della giornata</h3>
@@ -699,13 +776,15 @@ function renderGiorno() {
   `;
   cont.appendChild(summary);
 
+  const emojiPasto = { "Colazione": "🍳", "Pranzo": "🍽️", "Spuntino": "🍏", "Cena": "🌙" };
+
   giorno.pasti.forEach(pasto => {
     const card = document.createElement("div");
     card.className = "meal-card";
 
     const header = document.createElement("div");
     header.className = "meal-header";
-    header.innerHTML = `<h2>${pasto.nome}</h2><span class="meal-kcal">${fmt(pasto.totale.kcal)} kcal · P ${fmt(pasto.totale.proteine)} g · G ${fmt(pasto.totale.grassi)} g · C ${fmt(pasto.totale.carboidrati)} g</span>`;
+    header.innerHTML = `<h2>${emojiPasto[pasto.nome] || ""} ${pasto.nome}</h2><span class="meal-kcal"><b>${fmt(pasto.totale.kcal)}</b> kcal · P ${fmt(pasto.totale.proteine)} g · G ${fmt(pasto.totale.grassi)} g · C ${fmt(pasto.totale.carboidrati)} g</span>`;
     card.appendChild(header);
 
     const list = document.createElement("div");
@@ -720,10 +799,12 @@ function renderGiorno() {
           <span class="food-item-right">${a.quantita}<span class="food-item-toggle-icon">▾</span></span>
         </div>
         <div class="food-item-details">
-          <span>kcal <b>${fmt(a.kcal)}</b></span>
-          <span>Proteine <b>${fmt(a.proteine)} g</b></span>
-          <span>Grassi <b>${fmt(a.grassi)} g</b></span>
-          <span>Carboidrati <b>${fmt(a.carboidrati)} g</b></span>
+          <div class="food-item-details-inner">
+            <span class="v-kcal">kcal <b>${fmt(a.kcal)}</b></span>
+            <span class="v-p">Proteine <b>${fmt(a.proteine)} g</b></span>
+            <span class="v-f">Grassi <b>${fmt(a.grassi)} g</b></span>
+            <span class="v-c">Carboidrati <b>${fmt(a.carboidrati)} g</b></span>
+          </div>
         </div>
       `;
       item.querySelector(".food-item-row").addEventListener("click", () => {
