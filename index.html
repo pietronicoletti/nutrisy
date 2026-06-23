@@ -300,12 +300,12 @@
   }
   .food-item-details {
     display: grid;
-    grid-template-rows: 0fr;
+    grid-template-rows: minmax(0, 0fr);
     transition: grid-template-rows 0.25s ease;
     overflow: hidden;
   }
   .food-item.expanded .food-item-details {
-    grid-template-rows: 1fr;
+    grid-template-rows: minmax(0, 1fr);
   }
   .food-item-details-inner {
     min-height: 0;
